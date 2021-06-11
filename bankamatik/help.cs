@@ -1,83 +1,75 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bankamatik
+namespace CashDispenser
 {
     class help
     {
-        #region Butçe fieldı oluşturduk.
-        private static int Butce;
-        #endregion
+       
+        private static int Budget=0;
 
-        #region  Yapıcı metod ile bütçeyi en başta sıfıra eşitledik
-        static help()
-        {
-            Butce = 0;
-        }
-        #endregion
-
-        #region Bütçeyi Kapsulledik 
-        public int _butce
+        #region Encapsulation
+        public int _budget
         {
             get
             {
 
-                return Butce;
+                return Budget;
             }
             set
             {
 
-                Butce = value;
+                Budget = value;
 
             }
 
         }
         #endregion
 
-        #region Methodlarımız
-        public static void menuGoster()
+        #region 
+        public static void showMenu()
         {
-            Console.WriteLine("---------Hoşgeldiniz---------");
-            Console.WriteLine("Yapmak İstediğiniz İşlemi Seçiniz");
-            Console.WriteLine("1-Tutar Görüntüle\n2-Tutar Yatır\n3-Tutar Çek\n4-Çıkış");
+            Console.WriteLine("---------WELCOME---------");
+            Console.WriteLine("Please Select");
+            Console.WriteLine("1-Show Budget\n2-Deposit Money\n3-Withdraw Money\n4-Exit");
 
         }
 
-        public static void secimYap(int a)
+        public static void doSelect(int a)
         {
             if (a == 1)
             {
-                Console.WriteLine("Bütçeniz {0}TL", Butce);
+                Console.WriteLine("Budget {0}", Budget);
 
 
             }
             if (a == 2)
             {
-                Console.WriteLine("Eklemek İstediğiniz Tutarı Giriniz");
-                Butce += Paraekle();
+                Console.WriteLine("Please Write Deposit Money");
+                Budget += depositMoney();
 
             }
 
             if (a == 3)
             {
-                Console.WriteLine("Çekmek İstediğiniz Tutarı Giriniz");
+                Console.WriteLine("Please Write Withdraw Money");
 
-                int c = Paracek();
-                if (Butce >= c)
+                int c = withdrawMoney();
+                if (Budget >= c)
                 {
-                    Butce -= c;
+                    Budget -= c;
                 }
                 else
                 {
-                    Console.WriteLine("Limit Yok");
-                    Console.WriteLine("Eksiye Girmek İster Misiniz? 1/2");
+                    Console.WriteLine("No Limit");
+                    Console.WriteLine("Do You Want To Get Into The Minus? 1/2");
                     int s2 = int.Parse(Console.ReadLine());
                     if (s2 == 1)
                     {
-                        Butce -= c;
+                        Budget -= c;
 
                     }
                     else
@@ -90,16 +82,16 @@ namespace bankamatik
 
             if (a == 4)
             {
-                Console.WriteLine("Çıkış Yapılıyor");
+                Console.WriteLine("Exiting");
             }
 
         }
-        private static int Paraekle()
+        private static int depositMoney()
         {
             int x = int.Parse(Console.ReadLine());
             return x;
         }
-        private static int Paracek()
+        private static int withdrawMoney()
         {
             int x = int.Parse(Console.ReadLine());
             return x;
@@ -109,3 +101,4 @@ namespace bankamatik
 
     }
 }
+
