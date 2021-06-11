@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CashDispanser
+namespace CashDispenser
 {
     class Program
     {
@@ -15,7 +15,7 @@ namespace CashDispanser
             do
             {
 
-                help.showmenu();
+                help.showMenu();
                 select = Convert.ToInt32(Console.ReadLine());
                 help.doSelect(select);
                 Console.Beep();
@@ -25,3 +25,4 @@ namespace CashDispanser
         }
     }
 }
+
