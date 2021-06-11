@@ -17,7 +17,7 @@ namespace CashDispanser
 
                 help.showmenu();
                 select = Convert.ToInt32(Console.ReadLine());
-                help.secimYap(select);
+                help.doSelect(select);
                 Console.Beep();
 
             } while (select != 4);
