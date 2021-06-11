@@ -4,23 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bankamatik
+namespace CashDispanser
 {
     class Program
     {
         static void Main(string[] args)
         {
 
-            int secim;
+            int select;
             do
             {
 
-                help.menuGoster();
-                secim = Convert.ToInt32(Console.ReadLine());
-                help.secimYap(secim);
+                help.showmenu();
+                select = Convert.ToInt32(Console.ReadLine());
+                help.secimYap(select);
                 Console.Beep();
 
-            } while (secim != 4);
+            } while (select != 4);
 
         }
     }
